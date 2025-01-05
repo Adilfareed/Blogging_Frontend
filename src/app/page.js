@@ -17,31 +17,23 @@ const blogs = [
 const countries = ['USA', 'UK', 'India', 'Canada'];
 
 export default function Home() {
-  const [selectedCountry, setSelectedCountry] = useState('');
+
 
   return (
     <div>
       <Navbar />
+
+      <div className='flex flex-col justify-center items-center'>
+            <h1 className='text-3xl font-bold'> Our News </h1>
+            <p className='m-4 font-semibold'> Get our latest news first and increase your Knowledge about Current World </p>
+
+      </div>
+      <div className='flex justify-center items-center'> 
+        <img  className='w-[80%]  h-[400px] object-cover' src='/blogging-main.jpg '/>
+      </div>
       <div className="container mx-auto p-6">
         <h1 className="text-2xl font-bold mb-4">Blogs</h1>
-        <div className="mb-4">
-          <label htmlFor="country" className="block text-lg font-medium mb-2">
-            Select Country
-          </label>
-          <select
-            id="country"
-            className="border border-gray-300 rounded-md p-2"
-            value={selectedCountry}
-            onChange={(e) => setSelectedCountry(e.target.value)}
-          >
-            <option value="">All Countries</option>
-            {countries.map((country) => (
-              <option key={country} value={country}>
-                {country}
-              </option>
-            ))}
-          </select>
-        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {blogs.map((blog) => (
             <div key={blog.id} className="border rounded-lg p-4">
