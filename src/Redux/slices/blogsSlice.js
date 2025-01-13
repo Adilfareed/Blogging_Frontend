@@ -6,7 +6,9 @@ import axios from 'axios';
 export const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async () => {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/blogs`);
   return response.data; // Axios automatically parses JSON responses
+
 });
+
 
 const blogsSlice = createSlice({
   name: 'blogs',
