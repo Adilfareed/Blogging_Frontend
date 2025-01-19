@@ -13,13 +13,13 @@ const Navbar = () => {
       </div>
    
       <div>
-      <ul className="flex space-x-6 p-4 justify-center items-center text-2xl ">
+      <ul className="flex space-x-6 p-4 justify-center items-center text-1xl ">
         <li className='font-semibold hover:text-amber-900'>
           <Link href="/" legacyBehavior>
           Blogs
           </Link>
         </li>
-        <li className='font-semibold hover:text-amber-900'>
+        <li className='font-semibold  hover:text-amber-900'>
           <Link href="/about" legacyBehavior>
           About Us
           </Link>
