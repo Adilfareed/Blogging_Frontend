@@ -1,22 +1,23 @@
+'use client';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signupUser } from '../../store/authSlice';
-import { useRouter } from 'next/router';
+import { signupUser } from '../../Redux/slices/authslice';
+import { useRouter } from 'next/navigation'; // <-- import from next/navigation
 
 export default function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('user');
+
   const dispatch = useDispatch();
-  const router = useRouter();
+  const router = useRouter(); // <-- initialize the router
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userData = { name, email, password, role };
+    const userData = { name, email, password };
     try {
       await dispatch(signupUser(userData)).unwrap();
-      router.push('/auth/login');
+      router.push('/'); // <-- use the router instance
     } catch (err) {
       console.error('Signup failed:', err);
     }
@@ -50,14 +51,6 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <select
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-        >
-          <option value="user">User</option>
-          <option value="admin">Admin</option>
-        </select>
         <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
           Sign Up
         </button>

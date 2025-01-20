@@ -1,7 +1,9 @@
+'use client';
 import { useState } from 'react';
+
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../store/authSlice';
-import { useRouter } from 'next/router';
+import { loginUser } from '../../Redux/slices/authslice';
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
   const [email, setEmail] = useState('');

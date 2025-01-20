@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://your-backend-url'; // Replace with your backend URL
+const API_BASE_URL =`${process.env.NEXT_PUBLIC_BACKEND_URL}` ; // Replace with your backend URL
 
 // Async action for signup
 export const signupUser = createAsyncThunk('auth/signup', async (userData, { rejectWithValue }) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/signup`, userData);
+    const response = await axios.post(`${API_BASE_URL}/api/auth/signup`, userData);
     return response.data; // Return user data and token
   } catch (error) {
     return rejectWithValue(error.response.data); // Return error message
@@ -16,7 +16,7 @@ export const signupUser = createAsyncThunk('auth/signup', async (userData, { rej
 // Async action for login
 export const loginUser = createAsyncThunk('auth/login', async (userData, { rejectWithValue }) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/login`, userData);
+    const response = await axios.post(`${API_BASE_URL}/api/auth/login`, userData);
     return response.data; // Return user data and token
   } catch (error) {
     return rejectWithValue(error.response.data); // Return error message
