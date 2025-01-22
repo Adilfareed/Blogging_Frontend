@@ -30,8 +30,8 @@ const Navbar = () => {
           </Link>
         </li>
         <li className='bg-amber-950 rounded-lg p-3 text-white hover:bg-amber-900'>
-          <Link href="/contact" legacyBehavior>
-          Login
+          <Link href="/addblog" legacyBehavior>
+          Upload
           </Link>
         </li>
       </ul>
