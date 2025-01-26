@@ -1,8 +1,15 @@
-'use client'; // Marks this file as a Client Component
+'use client';
 
 import { Provider } from 'react-redux';
-import store from "../Redux/store"; // Adjust the path based on your folder structure
+import { PersistGate } from 'redux-persist/integration/react';
+import store, { persistor } from "../Redux/store"; // Adjust the path based on your structure
 
 export default function Providers({ children }) {
-  return <Provider store={store}>{children}</Provider>;
+  return (
+    <Provider store={store}>
+      <PersistGate loading={<p>Loading...</p>} persistor={persistor}>
+        {children}
+      </PersistGate>
+    </Provider>
+  );
 }

@@ -20,6 +20,7 @@ const BlogDetailPage = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
+ 
 
   useEffect(() => {
     if (id) {
@@ -67,20 +68,27 @@ const BlogDetailPage = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/blogs/${id}`);
-      alert('Blog deleted successfully!');
+     
       setShowModal(false);
-      router.push('/');
+     
+
+
+      window.location.reload();
+   
+
+    
     } catch (err) {
       alert(err.response?.data?.message || 'Failed to delete blog.');
     }
   };
-
+ 
   if (loading) {
     return <p className="text-center mt-4">Loading blog...</p>;
   }
 
   if (error) {
-    return <p className="text-center mt-4 text-red-500">{error}</p>;
+    return <p className="text-center mt-4 text-red-500">{ router.push('/addblog')}</p> 
+    ;
   }
 
   return (

@@ -30,22 +30,18 @@ const BlogListPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogs.map((blog) => (
-
-            <Link href={`/blogdetail/${blog._id}`}>
-            <div
-              key={blog._id}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
-            >
-              <img
-                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/uploads/${blog.image}`}
-                alt={blog.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
-                <p className="text-gray-700">{blog.description}</p>
-              </div>
-            </div>
+            <Link key={blog._id} href={`/blogdetail/${blog._id}`}>
+              <a className="block bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/uploads/${blog.image}`}
+                  alt={blog.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-4">
+                  <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
+                  <p className="text-gray-700">{blog.description}</p>
+                </div>
+              </a>
             </Link>
           ))}
         </div>
