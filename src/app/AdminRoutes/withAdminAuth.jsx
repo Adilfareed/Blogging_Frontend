@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"; // Assuming you're using Redux
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import Spinner from "../components/Spinner";
 
 const withAdminAuth = (WrappedComponent) => {
   return (props) => {
@@ -16,7 +17,7 @@ const withAdminAuth = (WrappedComponent) => {
     }, [user, router]);
 
     if (!user || user.role !== "admin") {
-      return <p>Loading...</p>; // Optionally, show a loading state.
+      return <Spinner/>; // Optionally, show a loading state.
     }
 
     return <WrappedComponent {...props} />;
