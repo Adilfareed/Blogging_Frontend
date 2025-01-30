@@ -99,7 +99,7 @@ const AddBlogForm = ({selectedtab}) => {
           </div>
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition"
+            className="w-full bg-amber-950 text-white py-3 rounded-lg  transition"
           >
             Submit
           </button>
