@@ -26,8 +26,8 @@ export default function Home() {
   return (
     <div>
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-[80px] font-bold">Our News</h1>
-        <p className="m-4 text-2xl">
+        <h1 className="lg:text-[80px] text-[40px] font-bold text-center ">Our News</h1>
+        <p className="m-4 text-2xl text-center">
           Get our latest news first and increase your Knowledge about the Current World
         </p>
       </div>
